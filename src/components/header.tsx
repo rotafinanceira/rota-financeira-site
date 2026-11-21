@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { links } from "@/lib/links";
 import {
   CloseIcon,
@@ -26,12 +26,28 @@ const REDES = [
   { href: links.instagram, rotulo: "Instagram", Icone: InstagramIcon },
 ];
 
+/** Verdadeiro depois que a página rolou um pouco: aí a barra ganha fundo. */
+function useRolou() {
+  return useSyncExternalStore(
+    (avisar) => {
+      window.addEventListener("scroll", avisar, { passive: true });
+      return () => window.removeEventListener("scroll", avisar);
+    },
+    () => window.scrollY > 16,
+    () => false,
+  );
+}
+
 export function Header() {
   const [aberto, setAberto] = useState(false);
+  const rolou = useRolou();
+  const comFundo = rolou || aberto;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors ${comFundo ? "bg-white/95 shadow-sm backdrop-blur" : "bg-transparent"}`}
+    >
+      <div className="mx-auto flex h-[5.5rem] max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
         <a href="#topo" aria-label="Rota Financeira, início">
           <Image
             src="/img/logo.svg"
@@ -39,12 +55,12 @@ export function Header() {
             width={201}
             height={64}
             priority
-            className="h-12 w-auto"
+            className="h-[3.3rem] w-auto"
           />
         </a>
 
         <nav aria-label="Principal" className="hidden md:block">
-          <ul className="flex items-center gap-9 text-[1.05rem] font-medium">
+          <ul className="flex items-center gap-5 text-[clamp(1rem,1.5vw,1.25rem)] font-medium lg:gap-6">
             {NAVEGACAO.map((item) => (
               <li key={item.href}>
                 <a
@@ -58,13 +74,13 @@ export function Header() {
           </ul>
         </nav>
 
-        <ul className="hidden items-center gap-3 lg:flex">
+        <ul className="hidden items-center gap-3.5 lg:flex">
           {REDES.map(({ href, rotulo, Icone }) => (
             <li key={rotulo}>
               <a
                 href={href}
                 aria-label={rotulo}
-                className="grid size-9 place-items-center rounded-full bg-neutral-300 text-white transition-colors hover:bg-brand"
+                className={`grid size-10 place-items-center rounded-full text-white transition-colors hover:bg-brand ${comFundo ? "bg-neutral-300" : "bg-white/30"}`}
               >
                 <Icone className="size-5" />
               </a>

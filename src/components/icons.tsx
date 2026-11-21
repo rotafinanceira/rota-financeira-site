@@ -70,16 +70,49 @@ export const GlobeIcon = (p: Props) => (
   </svg>
 );
 
-export const PhoneGlyph = (p: Props) => (
-  <svg {...base} {...p}>
-    <rect x="7" y="3" width="10" height="18" rx="2.4" />
-    <path d="M11 18h2" />
+/** Maçã dos selos da App Store. */
+export const AppleGlyph = (p: Props) => (
+  <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...p}>
+    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
   </svg>
 );
 
-export const PlayGlyph = (p: Props) => (
+/** Triângulo colorido do Google Play. */
+export const GooglePlayGlyph = (p: Props) => (
   <svg viewBox="0 0 24 24" aria-hidden {...p}>
-    <path d="M5 3.4v17.2c0 .5.5.8.9.5l15-8.6c.4-.2.4-.8 0-1L5.9 2.9c-.4-.3-.9 0-.9.5z" fill="currentColor" />
+    <path d="M3.6 1.9 13.6 12 3.6 22.1c-.3-.2-.4-.6-.4-1.1V3c0-.5.1-.9.4-1.1z" fill="#00a0ff" />
+    <path d="M3.6 1.9c.3-.1.7 0 1.2.3l11.7 6.7-2.9 3.1z" fill="#00e07a" />
+    <path d="M3.6 22.1 13.6 12l2.9 3.1-11.7 6.7c-.5.3-.9.4-1.2.3z" fill="#ff3a44" />
+    <path d="m16.5 8.9 4 2.3c.6.4.6 1.2 0 1.6l-4 2.3-2.9-3.1z" fill="#ffd500" />
+  </svg>
+);
+
+/** Carro com presente: o ícone de "tudo em dia" e de "veículo não cadastrado". */
+export const CarroPresente = (p: Props) => (
+  <svg viewBox="0 0 64 64" aria-hidden {...p}>
+    <path d="m11 9 1.3 3.2L15.5 13.5 12.3 14.8 11 18l-1.3-3.2L6.5 13.5l3.200-1.300z" fill="#f6c32b" />
+    <path d="m53 6 1.1 2.6 2.600 1.100-2.600 1.100L53 13.400l-1.100-2.600-2.600-1.100 2.600-1.100z" fill="#f6c32b" />
+    <rect x="25" y="10" width="14" height="10" rx="1.5" fill="#f6c32b" />
+    <rect x="23.500" y="8.500" width="17" height="4.500" rx="1.500" fill="#f2b100" />
+    <rect x="30.800" y="8.500" width="2.400" height="11.500" fill="#e07b00" />
+    <path d="M32 8.500c-3-5-8-3-5.200-.4zM32 8.500c3-5 8-3 5.200-.4z" fill="#e07b00" />
+    <path d="M15 34 19 22.500c.4-1 1.200-1.500 2.200-1.500h21.600c1 0 1.800.5 2.200 1.500L49 34z" fill="#2f8a27" />
+    <path d="m20.500 33 2.800-9h17.400l2.800 9z" fill="#cfeec4" />
+    <rect x="8" y="32" width="48" height="19" rx="6" fill="#3fa534" />
+    <rect x="12" y="38" width="9" height="5" rx="2.500" fill="#fff6c2" />
+    <rect x="43" y="38" width="9" height="5" rx="2.500" fill="#fff6c2" />
+    <rect x="24" y="43" width="16" height="3" rx="1.500" fill="#2a7a22" />
+    <rect x="12" y="49" width="10" height="7" rx="2" fill="#26302a" />
+    <rect x="42" y="49" width="10" height="7" rx="2" fill="#26302a" />
+  </svg>
+);
+
+/** Ajuda (?) em círculo azul, do cartão do odômetro. */
+export const AjudaGlyph = (p: Props) => (
+  <svg viewBox="0 0 24 24" aria-hidden fill="none" {...p}>
+    <circle cx="12" cy="12" r="10" stroke="#3b9eff" strokeWidth="1.8" />
+    <path d="M9.200 9.400a2.900 2.900 0 015.600.9c0 1.900-2.800 2.300-2.800 4.100" stroke="#3b9eff" strokeWidth="1.8" strokeLinecap="round" />
+    <circle cx="12" cy="17.200" r="1.100" fill="#3b9eff" />
   </svg>
 );
 

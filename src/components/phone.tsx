@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { NavGlyph } from "./icons";
+import { Velocimetro } from "./cards";
+import { AjudaGlyph, CarroPresente, NavGlyph } from "./icons";
 
 /**
  * Celular decorativo com uma tela do app desenhada em HTML (nada de imagem
@@ -18,27 +19,48 @@ export function Phone({
   return (
     <div
       aria-hidden
-      className={`relative aspect-[9/19] overflow-hidden rounded-[13%/6.2%] border-[0.55rem] border-neutral-900 shadow-2xl shadow-black/25 ${escuro ? "bg-neutral-900" : "bg-[#eff3f5]"} ${className}`}
+      className={`relative aspect-[9/19.4] ${className}`}
       style={{ containerType: "inline-size" }}
     >
-      <div className="absolute left-1/2 top-0 z-20 h-[4.2cqw] w-[34cqw] -translate-x-1/2 rounded-b-[3cqw] bg-neutral-900" />
-      <div className="flex h-full flex-col pt-[6cqw]">{children}</div>
+      <div className="absolute inset-0 rounded-[13cqw] bg-[#0d0d0f] p-[2.3cqw] shadow-2xl shadow-black/30">
+        <div
+          className={`relative flex h-full flex-col overflow-hidden rounded-[10.8cqw] ${escuro ? "bg-neutral-900 text-white" : "bg-[#eff3f5] text-ink"}`}
+        >
+          <div className="absolute left-1/2 top-[2.4cqw] z-20 h-[5cqw] w-[28cqw] -translate-x-1/2 rounded-full bg-black" />
+          <span className="absolute left-[9cqw] top-[2.7cqw] z-20 text-[3.6cqw] font-semibold leading-none">
+            9:41
+          </span>
+          <span className="absolute right-[8cqw] top-[3cqw] z-20 flex items-center gap-[1.2cqw]">
+            <span className="flex items-end gap-[0.5cqw]">
+              {[1.4, 2, 2.7, 3.4].map((h) => (
+                <i
+                  key={h}
+                  className="block w-[0.9cqw] rounded-[0.2cqw] bg-current"
+                  style={{ height: `${h}cqw` }}
+                />
+              ))}
+            </span>
+            <i className="block h-[2.8cqw] w-[5cqw] rounded-[0.8cqw] border-[0.35cqw] border-current" />
+          </span>
+          {children}
+        </div>
+      </div>
     </div>
   );
 }
 
 function BarraDoApp() {
   return (
-    <div className="flex items-center justify-between bg-white px-[5cqw] py-[2.6cqw]">
-      <span className="size-[5cqw] rounded-full border-[0.5cqw] border-ink-soft/70" />
+    <div className="mt-[10cqw] flex items-center justify-between bg-white px-[5cqw] py-[2.4cqw]">
+      <span className="size-[4.6cqw] rounded-full border-[0.5cqw] border-ink-soft/70" />
       <Image
-        src="/img/logo-icone.svg"
+        src="/img/logo.svg"
         alt=""
-        width={64}
+        width={201}
         height={64}
-        className="h-[7cqw] w-auto"
+        className="h-[6.4cqw] w-auto"
       />
-      <span className="size-[5cqw] rounded-b-[2cqw] rounded-t-full border-[0.5cqw] border-ink-soft/70" />
+      <span className="size-[4.6cqw] rounded-b-[2cqw] rounded-t-full border-[0.5cqw] border-ink-soft/70" />
     </div>
   );
 }
@@ -51,7 +73,7 @@ function NavegacaoDoApp({ ativa }: { ativa: number }) {
     ["financas", "Finanças"],
   ] as const;
   return (
-    <div className="mt-auto grid grid-cols-4 border-t border-line bg-white pb-[3cqw] pt-[2cqw]">
+    <div className="mt-auto grid grid-cols-4 border-t border-line bg-white pb-[4cqw] pt-[2cqw]">
       {itens.map(([tipo, rotulo], i) => (
         <div
           key={tipo}
@@ -68,6 +90,21 @@ function NavegacaoDoApp({ ativa }: { ativa: number }) {
 const cartao =
   "rounded-[2.4cqw] bg-white p-[4cqw] shadow-[0_0.4cqw_2cqw_rgba(0,0,0,0.06)]";
 
+/** Primeira tela do app: fundo branco e a logo no centro (celular do topo). */
+export function TelaSplash() {
+  return (
+    <div className="grid flex-1 place-items-center bg-[#f9fafb]">
+      <Image
+        src="/img/logo.svg"
+        alt=""
+        width={201}
+        height={64}
+        className="h-auto w-[62cqw]"
+      />
+    </div>
+  );
+}
+
 export function TelaBoasVindas() {
   return (
     <div className="relative flex h-full flex-col justify-end text-white">
@@ -78,15 +115,15 @@ export function TelaBoasVindas() {
         sizes="320px"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/30" />
-      <div className="relative flex flex-col gap-[3.5cqw] p-[7cqw]">
-        <Image
-          src="/img/logo.svg"
-          alt=""
-          width={201}
-          height={64}
-          className="mb-[6cqw] h-[11cqw] w-auto self-start brightness-0 invert"
-        />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
+      <Image
+        src="/img/logo.svg"
+        alt=""
+        width={201}
+        height={64}
+        className="absolute left-[7cqw] top-[16cqw] h-[8cqw] w-auto brightness-0 invert"
+      />
+      <div className="relative flex flex-col gap-[3.5cqw] p-[7cqw] pb-[9cqw]">
         <p className="text-[8.4cqw] font-bold leading-[1.1]">
           Seu veículo na palma da sua mão!
         </p>
@@ -97,7 +134,8 @@ export function TelaBoasVindas() {
         <span className="mt-[2cqw] rounded-[1.8cqw] bg-brand py-[3cqw] text-center text-[3.6cqw] font-semibold">
           Criar uma conta
         </span>
-        <span className="rounded-[1.8cqw] bg-white py-[3cqw] text-center text-[3.6cqw] font-semibold text-brand-dark">
+        <span className="flex items-center justify-center gap-[2cqw] rounded-[1.8cqw] bg-white py-[3cqw] text-[3.6cqw] font-semibold text-ink">
+          <b className="text-[4.2cqw] font-bold text-[#4285f4]">G</b>
           Continuar com o Google
         </span>
       </div>
@@ -110,36 +148,34 @@ export function TelaInicio() {
     <>
       <BarraDoApp />
       <div className="flex flex-col gap-[3cqw] p-[4cqw]">
-        <div className={cartao}>
-          <p className="text-[3.6cqw] font-semibold">
-            Como está seu odômetro hoje?
+        <div className={`${cartao} relative overflow-hidden`}>
+          <div className="flex items-start justify-between">
+            <p className="text-[3.5cqw] font-semibold">
+              Como está seu odômetro hoje?
+            </p>
+            <AjudaGlyph className="size-[4cqw] shrink-0" />
+          </div>
+          <p className="mt-[2cqw] text-[5.6cqw] font-bold leading-none">
+            000.000 <span className="text-[2.8cqw] font-semibold">KM</span>
           </p>
-          <p className="mt-[2cqw] text-[6cqw] font-bold leading-none">
-            000.000 <span className="text-[3cqw] font-semibold">KM</span>
-          </p>
-          <p className="mt-[2cqw] text-[2.5cqw] text-ink-muted">
+          <p className="mt-[2cqw] max-w-[22cqw] text-[2.3cqw] leading-tight text-ink-muted">
             Última quilometragem registrada: 0 km
           </p>
-          <div className="mt-[3cqw] rounded-[1.6cqw] bg-[#e5e8ea] py-[2.4cqw] text-center text-[3cqw] text-ink-soft">
-            Inserir quilometragem do dia
-          </div>
+          <Velocimetro className="absolute -bottom-[1cqw] right-[1cqw] w-[28cqw]" />
+        </div>
+        <div className="rounded-[2.4cqw] bg-[#e5e8ea] py-[2.6cqw] text-center text-[3cqw] text-ink-soft">
+          Inserir quilometragem do dia
         </div>
         <div className={`${cartao} flex flex-col items-center gap-[2cqw] text-center`}>
-          <Image
-            src="/img/logo-icone.svg"
-            alt=""
-            width={64}
-            height={64}
-            className="size-[13cqw]"
-          />
+          <CarroPresente className="size-[14cqw]" />
           <p className="text-[3.4cqw] font-semibold">Veículo não cadastrado</p>
           <p className="text-[2.6cqw] text-ink-muted">
             Cadastre seu veículo para acompanhar manutenções e gastos.
           </p>
-          <span className="mt-[1cqw] w-full rounded-[1.6cqw] bg-brand py-[2.6cqw] text-[3cqw] font-semibold text-white">
-            Cadastrar veículo
-          </span>
         </div>
+        <span className="rounded-[1.8cqw] bg-brand py-[2.8cqw] text-center text-[3cqw] font-semibold text-white">
+          Cadastrar veículo
+        </span>
       </div>
       <NavegacaoDoApp ativa={0} />
     </>
@@ -157,11 +193,11 @@ export function TelaHistorico() {
       <BarraDoApp />
       <div className="flex flex-col gap-[3cqw] p-[4cqw]">
         <p className="text-[4.4cqw] font-bold">Histórico</p>
-        <p className="text-[3cqw] font-semibold">outubro</p>
+        <p className="text-[3cqw] font-semibold">Outubro</p>
         {itens.map(([nome, valor, km], i) => (
           <div key={i} className={cartao}>
             <div className="flex justify-between text-[2.4cqw] text-ink-muted">
-              <span>quarta-feira, 29 de out. de 2025</span>
+              <span>25 set 2024</span>
               <span className="font-semibold text-brand">{km}</span>
             </div>
             <p className="mt-[1.6cqw] text-[3.2cqw] font-semibold">{nome}</p>
@@ -179,20 +215,26 @@ export function TelaFinancas() {
     <>
       <BarraDoApp />
       <div className="flex flex-col gap-[3cqw] p-[4cqw]">
-        <p className="text-[4.4cqw] font-bold">Finanças</p>
+        <p className="flex items-center gap-[1.6cqw] text-[4.4cqw] font-bold">
+          <NavGlyph tipo="financas" className="size-[5cqw]" />
+          Finanças
+        </p>
         <div className={cartao}>
-          <p className="text-[3.4cqw] font-semibold">Quanto guardar por dia?</p>
+          <div className="flex items-start justify-between">
+            <p className="text-[3.4cqw] font-semibold">Quanto guardar por dia?</p>
+            <AjudaGlyph className="size-[4cqw] shrink-0" />
+          </div>
           <div className="mt-[2cqw] flex justify-between text-[2.6cqw] text-ink-muted">
             <span>Valor recomendado</span>
-            <span className="font-semibold text-brand">R$ 20,00</span>
+            <span className="font-semibold text-ink">R$ 20,00</span>
           </div>
-          <span className="mt-[3cqw] block rounded-[1.6cqw] bg-brand py-[2.6cqw] text-center text-[3cqw] font-semibold text-white">
-            Guardar dinheiro
-          </span>
         </div>
+        <span className="block rounded-[1.8cqw] bg-brand py-[3cqw] text-center text-[3.2cqw] font-semibold text-white">
+          Guardar dinheiro
+        </span>
         <div className={cartao}>
           <p className="text-[3.4cqw] font-semibold">Reserva de manutenção</p>
-          <p className="mt-[2cqw] text-[5cqw] font-bold">R$ 200,00</p>
+          <p className="mt-[2cqw] text-[3.8cqw] font-bold">R$ 200,00</p>
           <p className="mt-[1.6cqw] text-[2.5cqw] text-ink-muted">
             Progresso da última semana
           </p>
@@ -205,24 +247,27 @@ export function TelaFinancas() {
 
 export function TelaManutencoes() {
   const itens = [
-    "Troca de óleo",
-    "Troca do filtro de combustível",
     "Alinhamento e balanceamento",
-    "Troca de bateria",
+    "Bateria",
+    "Troca de óleo",
+    "Filtro de ar do motor",
     "Freio",
   ];
   return (
     <>
       <BarraDoApp />
       <div className="flex flex-col gap-[2.6cqw] p-[4cqw]">
-        <p className="text-[4.4cqw] font-bold">Manutenções</p>
+        <p className="flex items-center gap-[1.6cqw] text-[4.4cqw] font-bold">
+          <NavGlyph tipo="manutencoes" className="size-[5cqw]" />
+          Manutenções
+        </p>
         {itens.map((nome) => (
           <div
             key={nome}
-            className={`${cartao} flex items-center justify-between !p-[3.4cqw] text-[3cqw] font-medium`}
+            className={`${cartao} flex items-center gap-[2.4cqw] !p-[3.4cqw] text-[3cqw] font-medium`}
           >
+            <NavGlyph tipo="manutencoes" className="size-[4.4cqw] text-ink-soft" />
             {nome}
-            <span className="text-ink-muted">›</span>
           </div>
         ))}
       </div>

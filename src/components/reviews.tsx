@@ -17,60 +17,78 @@ export function Reviews() {
   return (
     <section
       id="avaliacoes"
-      className="relative overflow-hidden bg-gradient-to-b from-[#5b9f3d] to-[#2f6e1a] pb-0 pt-20 text-white md:pt-28"
+      className="relative overflow-hidden bg-gradient-to-br from-[#70ae58] via-[#4e9a34] to-[#2c6a17] text-white"
     >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <h2 className="titulo-secao centro claro text-center text-4xl font-semibold sm:text-5xl">
+      {/* o verde claro da seção anterior termina numa curva (Figma) */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1280 350"
+        preserveAspectRatio="none"
+        className="absolute inset-x-0 top-0 h-[clamp(5rem,27vw,21.9rem)] w-full text-brand-mint"
+      >
+        <path
+          d="M0 250C100 320 220 342 308 342S480 290 617 197C740 120 820 100 906 66S1200 0 1278 0L1280 0H0z"
+          fill="currentColor"
+        />
+      </svg>
+
+      <div className="relative mx-auto max-w-7xl px-5 pt-[clamp(8.5rem,31vw,24.5rem)] sm:px-8">
+        <h2 className="titulo-secao centro text-center text-[clamp(2rem,4vw,3.25rem)] font-semibold">
           Avaliações
         </h2>
 
-        <dl className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-8 text-center sm:grid-cols-3">
+        <dl className="mx-auto mt-14 grid max-w-[56rem] grid-cols-1 gap-8 text-center sm:grid-cols-3 md:mt-24">
           {NUMEROS.map((n) => (
             <div key={n.destaque}>
-              <dt className="text-2xl font-semibold">{n.destaque}</dt>
-              <dd className="mt-1 text-base text-white/85">{n.texto}</dd>
+              <dt className="text-[clamp(1.4rem,2.4vw,1.95rem)] font-semibold leading-tight">
+                {n.destaque}
+              </dt>
+              <dd className="mt-2 text-[clamp(1rem,1.55vw,1.25rem)] text-white/90">
+                {n.texto}
+              </dd>
             </div>
           ))}
         </dl>
       </div>
 
-      {/* faixa de telas do app, com o recorte curvo do Figma na base */}
-      <div className="relative mt-14 md:mt-20">
-        <div className="mx-auto flex max-w-6xl items-end justify-center gap-3 px-4 sm:gap-5 md:gap-6">
-          <div className="hidden w-40 translate-y-6 md:block lg:w-48">
+      {/* faixa de telas do app; a onda clara da seção de baixo corta as bases (Figma) */}
+      <div className="relative mt-14 h-[92vw] overflow-hidden md:mt-20 md:h-[48vw]">
+        <div className="absolute inset-x-0 top-0 flex items-start justify-center gap-[0.5vw]">
+          <div className="mt-[12.5vw] hidden w-[21vw] md:block">
             <Phone>
               <TelaHistorico />
             </Phone>
           </div>
-          <div className="w-36 sm:w-44 lg:w-52">
+          <div className="mt-[8vw] w-[40vw] md:mt-[6.6vw] md:w-[21vw]">
             <Phone>
               <TelaInicio />
             </Phone>
           </div>
-          <div className="w-44 sm:w-52 lg:w-60">
+          <div className="w-[46vw] md:w-[22.1vw]">
             <Phone escuro>
               <TelaBoasVindas />
             </Phone>
           </div>
-          <div className="hidden w-36 sm:block sm:w-44 lg:w-52">
+          <div className="mt-[8vw] w-[40vw] md:mt-[6.6vw] md:w-[21vw]">
             <Phone>
               <TelaFinancas />
             </Phone>
           </div>
-          <div className="hidden w-40 translate-y-6 md:block lg:w-48">
+          <div className="mt-[12.5vw] hidden w-[21vw] md:block">
             <Phone>
               <TelaManutencoes />
             </Phone>
           </div>
         </div>
+
         <svg
           aria-hidden
-          viewBox="0 0 1440 140"
+          viewBox="0 0 1280 260"
           preserveAspectRatio="none"
-          className="relative -mt-px block h-24 w-full text-brand-mint md:h-36"
+          className="absolute inset-x-0 bottom-[-1px] block h-auto w-full text-brand-mint"
         >
           <path
-            d="M0 140V100C200 20 420 20 640 70C860 120 1100 110 1440 30V140z"
+            d="M0 99C80 190 150 228 209 228S420 262 512 257S700 190 775 112S980 20 1103 0S1230 40 1278 86V261H0z"
             fill="currentColor"
           />
         </svg>
