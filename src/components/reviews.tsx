@@ -52,29 +52,30 @@ export function Reviews() {
       </div>
 
       {/* faixa de telas do app; a onda clara da seção de baixo corta as bases (Figma) */}
-      <div className="relative mt-14 h-[92vw] overflow-hidden md:mt-20 md:h-[48vw]">
-        <div className="absolute inset-x-0 top-0 flex items-start justify-center gap-[0.5vw]">
-          <div className="mt-[12.5vw] hidden w-[21vw] md:block">
+      {/* medidas em vw até 1280 px (largura do desenho) e travadas dali em diante */}
+      <div className="relative mt-14 h-[92vw] overflow-hidden md:mt-20 md:h-[min(48vw,38.4rem)]">
+        <div className="absolute inset-x-0 top-0 flex items-start justify-center gap-2">
+          <div className="mt-[min(12.5vw,10rem)] hidden w-[min(21vw,16.8rem)] md:block">
             <Phone>
               <TelaHistorico />
             </Phone>
           </div>
-          <div className="mt-[8vw] w-[40vw] md:mt-[6.6vw] md:w-[21vw]">
+          <div className="mt-[8vw] w-[40vw] md:mt-[min(6.6vw,5.3rem)] md:w-[min(21vw,16.8rem)]">
             <Phone>
               <TelaInicio />
             </Phone>
           </div>
-          <div className="w-[46vw] md:w-[22.1vw]">
+          <div className="w-[46vw] md:w-[min(22.1vw,17.7rem)]">
             <Phone escuro>
               <TelaBoasVindas />
             </Phone>
           </div>
-          <div className="mt-[8vw] w-[40vw] md:mt-[6.6vw] md:w-[21vw]">
+          <div className="mt-[8vw] w-[40vw] md:mt-[min(6.6vw,5.3rem)] md:w-[min(21vw,16.8rem)]">
             <Phone>
               <TelaFinancas />
             </Phone>
           </div>
-          <div className="mt-[12.5vw] hidden w-[21vw] md:block">
+          <div className="mt-[min(12.5vw,10rem)] hidden w-[min(21vw,16.8rem)] md:block">
             <Phone>
               <TelaManutencoes />
             </Phone>
@@ -85,7 +86,7 @@ export function Reviews() {
           aria-hidden
           viewBox="0 0 1280 260"
           preserveAspectRatio="none"
-          className="absolute inset-x-0 bottom-[-1px] block h-auto w-full text-brand-mint"
+          className="absolute inset-x-0 bottom-[-1px] block h-[min(20.3vw,16.25rem)] w-full text-brand-mint"
         >
           <path
             d="M0 99C80 190 150 228 209 228S420 262 512 257S700 190 775 112S980 20 1103 0S1230 40 1278 86V261H0z"
