@@ -51,7 +51,9 @@ export function Hero() {
         />
       </svg>
 
-      <Pontilhado className="absolute bottom-16 left-[5.5%] hidden md:block" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-16 mx-auto hidden max-w-7xl px-5 sm:px-8 md:block">
+        <Pontilhado className="ml-3" />
+      </div>
 
       <div className="relative mx-auto grid max-w-7xl items-start gap-14 px-5 sm:px-8 md:grid-cols-[1.12fr_1fr] md:gap-8">
         <div>
